@@ -1,4 +1,3 @@
-cd nodeProject/nodeApp/
 while true ; do
       if [[ -f GITPULLMASTER ]] ; then
             git pull > gitpull.log 2>&1
