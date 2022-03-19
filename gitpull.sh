@@ -1,6 +1,5 @@
 
 while true ; do
-      cd nodeProject/nodeApp/
-      gitpull
+      git pull
       sleep 10
 done
