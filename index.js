@@ -7,7 +7,7 @@ dotenv.config();
 const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-let fs = require("fs");
+let fs = require("fs").promises;
 const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
 require("./db");
 
