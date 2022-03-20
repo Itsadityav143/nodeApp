@@ -2,45 +2,6 @@ const {
     adminModel
 } = require('../../../models/admin');
 
-var ar = require('../../../languages/ar.json')
-var en = require('../../../languages/en.json');
-
-const languages = {
-    ar: ar,
-    en: en
-
-}
-
-const {
-    NotificationModel
-} = require('../../../models/Notification');
-
-const {
-    UserModel
-} = require('../../../models/user');
-
-const {
-    superMarketModel
-} = require('../../../models/superMarketUser');
-
-const {
-    branchManagerModel
-} = require('../../../models/branchManager');
-
-const {
-    RestaurantModel
-} = require('../../../models/restaurant');
-
-const {
-    driverModel
-} = require('../../../models/driver');
-
-let md5 = require("md5");
-const Joi = require('joi');
-let commonFunc = require("../../../common/utility")
-const jwt = require('jsonwebtoken');
-
-
 exports.login = async function (req, res, next) {
     let {
         email,
@@ -187,51 +148,5 @@ exports.changePassword = async (req, res) => {
 
     } catch (error) {
         res.status(403).json(error.message)
-    }
-}
-
-exports.customNotification = async (req, res) => {
-    try {
-        if (typeof req.body.user_ids == 'string')
-            req.body.user_ids = JSON.parse(req.body.user_ids)
-
-        for (let index = 0; index < req.body.user_ids.length; index++) {
-            let user_id = req.body.user_ids[index];
-            let userFound = await UserModel.findById(user_id).lean(true)
-            if (!userFound)
-                userFound = await branchManagerModel.findById(user_id).lean(true)
-            if (!userFound)
-                userFound = await RestaurantModel.findById(user_id).lean(true)
-            if (!driverModel)
-                userFound = await driverModel.findById(user_id).lean(true)
-            if (!driverModel)
-                userFound = await superMarketModel.findById(user_id).lean(true)
-
-            let message = req.body.message;
-            let info = {
-                deviceToken: userFound.device_token,
-                name: userFound.firstName + " " + userFound.lastName,
-                message: message,
-                type: "Admin"
-            }
-            commonFunc.sendNotification(info);
-
-
-            let obj = {
-                notification_type: info.type,
-                notification_heading: "Custom Notification",
-                user_id: user_id,
-                title: req.body.title,
-                body: message,
-            }
-            await NotificationModel.create(obj);
-        }
-
-        res.status(200).json({
-            message: "Success",
-        });
-
-    } catch (error) {
-        res.status(403).error(error.message);
     }
 }

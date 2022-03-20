@@ -24,25 +24,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
 }));
 const responseHandler = require('./Middlewares/responseHandler')
 app.use('/', responseHandler);
-const adminBusiness = require('./Modules/admin_business/admin_business.routes').Router
-app.use('/admin-business', adminBusiness);
 const authRoutes = require('./Modules/auth/auth.route').Router
-const regionRoutes = require('./Modules/regions/region.routes').Router
-const walletRoutes = require('./Modules/wallet/wallet.routes').Router
-const restaurant = require('./Modules/restaurant/restaurant.routes').Router
-const user = require('./Modules/user/user.routes').Router
-const driver = require('./Modules/driver/driver.routes').Router
-const superMarket = require('./Modules/supermarket/supermarket.routes').Router
-const store = require('./Modules/store/store.routes').Router
-
-app.use('/store', store);
-app.use('/superMarket', superMarket);
-app.use('/restaurant', restaurant);
- app.use('/user', user);
 app.use('/auth', authRoutes);
-app.use('/region', regionRoutes);
-app.use('/wallet', walletRoutes);
-app.use('/driver', driver);
 
 const allowedExt = [
     '.js',
