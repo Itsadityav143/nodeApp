@@ -13,10 +13,7 @@
         }
     },
     "tags": [
-        {
-            "name": "Admin Auth Api's",
-            "description": "All Admin Auth Api's"
-        },
+        
         {
             "name": "User Auth Api's",
             "description": "All User Auth Api's"
