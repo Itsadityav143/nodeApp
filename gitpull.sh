@@ -1,4 +1,4 @@
-
+npm start
 while true ; do
       git pull
       sleep 10
