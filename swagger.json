@@ -12,7 +12,61 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    
+    "tags": [
+        
+        {
+            "name": "User Auth Api's",
+            "description": "All User Auth Api's"
+        },
+        {
+            "name": "Restaurant Auth Api's",
+            "description": "All Restaurant Auth Api's"
+        },
+        {
+            "name": "Driver Auth Api's",
+            "description": "All Driver Auth Api's"
+        },
+        {
+            "name": "SuperMarket Auth Api's",
+            "description": "All SuperMarket Auth Api's"
+        },
+        {
+            "name": "Store Auth Api's",
+            "description": "all store auth api's"
+        },
+        {
+            "name": "Store Api's",
+            "description": "all store  api's"
+        },
+        {
+            "name": "Admin-Business Api's",
+            "description": "All Admin-Business Api's"
+        },
+        {
+            "name": "User Api's",
+            "description": "All User Api's"
+        },
+        {
+            "name": "Restaurant Api's",
+            "description": "All Restaurant Api's"
+        },
+        {
+            "name": "SuperMarket Api's",
+            "description": "All SuperMarket Api's"
+        },
+        {
+            "name": "Wallet Api's",
+            "description": "All Wallet Api's"
+        },
+        {
+            "name": "Region Api's",
+            "description": "All Region Api's"
+        },
+        {
+            "name": "Upload Image Api",
+            "description": "Upload Image Api"
+        }
+    ],
     "schemes": [
         "http",
         "https"
